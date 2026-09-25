@@ -6,6 +6,7 @@ type PhoneMockupProps = {
   priority?: boolean;
   glow?: boolean;
   className?: string;
+  sizes?: string;
 };
 
 export function PhoneMockup({
@@ -14,6 +15,7 @@ export function PhoneMockup({
   priority = false,
   glow = false,
   className = "",
+  sizes = "(max-width: 640px) 88vw, (max-width: 1024px) 46vw, 460px",
 }: PhoneMockupProps) {
   return (
     <div className={`relative w-full ${className}`}>
@@ -45,7 +47,7 @@ export function PhoneMockup({
               height={2532}
               priority={priority}
               quality={90}
-              sizes="(max-width: 1024px) 78vw, 340px"
+              sizes={sizes}
               className="block h-auto w-full"
             />
           </div>

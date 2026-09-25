@@ -1,27 +1,25 @@
+import Image from "next/image";
 import { PhoneMockup } from "./PhoneMockup";
-
-const waveform = [10, 16, 24, 18, 32, 28, 42, 30, 18, 36, 46, 26, 16, 34, 22, 12, 30, 40, 24, 14, 28, 18, 11, 22, 16];
 
 export function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden scroll-mt-20">
-      <div className="mx-auto grid w-full max-w-7xl items-center gap-12 px-5 pt-10 pb-16 sm:px-8 sm:pt-14 lg:grid-cols-[minmax(0,1.05fr)_minmax(280px,0.95fr)] lg:gap-10 lg:px-10 lg:pt-16 lg:pb-24 xl:gap-16">
-        <div className="min-w-0 max-w-xl lg:max-w-none">
-          <p className="inline-flex max-w-full items-center gap-2.5 rounded-full border border-white/10 bg-white/5 px-3.5 py-2 text-sm font-medium text-white/85">
+    <section id="top" className="relative scroll-mt-20 overflow-hidden">
+      <div className="mx-auto grid w-full max-w-[90rem] items-center gap-10 px-5 pt-10 pb-16 sm:px-8 sm:pt-14 lg:grid-cols-[minmax(0,0.92fr)_minmax(260px,0.78fr)_minmax(320px,0.95fr)] lg:gap-x-16 lg:px-10 lg:pt-14 lg:pb-20 xl:gap-x-20">
+        <div className="relative z-10 min-w-0 max-w-xl lg:max-w-none lg:pr-6">
+          <p className="inline-flex max-w-full items-center gap-2.5 rounded-full border border-white/10 bg-black/40 px-3.5 py-2 text-sm font-medium text-white/90 backdrop-blur-md">
             <span className="relative flex h-2.5 w-2.5" aria-hidden="true">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-500 opacity-70 motion-reduce:animate-none" />
               <span className="relative h-2.5 w-2.5 rounded-full bg-red-500" />
             </span>
-            Vocal session · 96 BPM · A Minor
+            Take 6 · Main vocal
           </p>
 
           <h1 className="mt-6 text-balance text-[2.45rem] leading-[1.08] font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-[4.15rem]">
-            A studio session for your voice.
+            Keep every take. Sing the next one better.
           </h1>
 
           <p className="mt-5 max-w-xl text-lg leading-8 text-white/75">
-            Wav-Aid is an iPhone vocal studio with timeline lanes, progressive recording, and an AI
-            producer that scores every take.
+            Stack each pass on the session timeline. Wav-Aid listens for pitch, timing, and energy, then tells you how to sing the line again.
           </p>
 
           <div className="mt-8 flex flex-col gap-4 sm:flex-row">
@@ -35,60 +33,43 @@ export function Hero() {
               href="#studio"
               className="inline-flex min-h-14 w-full items-center justify-center rounded-full border border-white/15 bg-white/5 px-7 text-base font-semibold text-white backdrop-blur-md transition hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-300 sm:w-auto"
             >
-              Explore the studio
+              Open the timeline
             </a>
           </div>
 
-          <dl className="mt-8 grid grid-cols-3 gap-3">
-            {[
-              ["96", "BPM"],
-              ["A Minor", "Key"],
-              ["5", "Takes"],
-            ].map(([value, label]) => (
-              <div
-                key={label}
-                className="rounded-2xl border border-white/10 bg-white/[0.04] px-3 py-4 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-xl"
-              >
-                <dd className="text-lg font-semibold tracking-tight text-white">{value}</dd>
-                <dt className="mt-1 font-mono text-[13px] tracking-[0.16em] text-violet-200/80 uppercase">
-                  {label}
-                </dt>
-              </div>
-            ))}
-          </dl>
-
-          <div className="mt-8 hidden h-14 items-end gap-[3px] lg:flex" aria-hidden="true">
-            {waveform.map((height, index) => (
-              <span
-                key={index}
-                className={`w-1.5 rounded-full ${index === 14 ? "bg-red-400" : "bg-violet-300/80"}`}
-                style={{ height: `${height}px` }}
-              />
-            ))}
-          </div>
+          <p className="mt-8 inline-flex max-w-full flex-wrap items-center gap-x-3 gap-y-1 rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 font-mono text-sm tracking-[0.12em] text-white/80 uppercase shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-xl">
+            <span>96 BPM</span>
+            <span className="text-violet-300/80" aria-hidden="true">
+              ·
+            </span>
+            <span>A Minor</span>
+            <span className="text-violet-300/80" aria-hidden="true">
+              ·
+            </span>
+            <span>5 takes</span>
+          </p>
         </div>
 
-        <div className="relative mx-auto w-full min-w-0 max-w-[260px] sm:max-w-[300px] lg:max-w-[320px] xl:max-w-[340px]">
-          <div className="float-soft">
-            <PhoneMockup
-              src="/images/hero/singer-hero-female.png"
-              alt="Wav-Aid welcome screen with a singer at a studio microphone"
-              priority
-              glow
-            />
-          </div>
+        <figure className="relative hidden h-[min(72vh,680px)] overflow-hidden lg:block" aria-hidden="true">
+          <Image
+            src="/images/hero/singer-female-1.png"
+            alt=""
+            fill
+            priority
+            sizes="28vw"
+            className="object-cover object-[center_18%]"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,#05060d_0%,#05060d_10%,transparent_34%,transparent_72%,#05060d_100%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,#05060d_0%,transparent_14%,transparent_86%,#05060d_100%)]" />
+        </figure>
 
-          <div className="absolute top-[34%] left-0 hidden w-44 -translate-x-[68%] rounded-2xl border border-white/15 bg-[#12101c]/85 p-4 shadow-[0_16px_40px_rgba(0,0,0,0.35)] backdrop-blur-xl xl:block">
-            <p className="font-mono text-[13px] tracking-[0.16em] text-violet-200 uppercase">AI monitoring</p>
-            <p className="mt-2 text-base font-semibold text-white">Pitch stable</p>
-            <p className="mt-1 text-sm text-white/70">Timing locked · Energy strong</p>
-          </div>
-
-          <div className="absolute right-0 bottom-[14%] hidden w-40 translate-x-[46%] rounded-2xl border border-white/15 bg-[#12101c]/85 p-4 shadow-[0_16px_40px_rgba(0,0,0,0.35)] backdrop-blur-xl xl:block">
-            <p className="font-mono text-[13px] tracking-[0.16em] text-red-300 uppercase">Rec 00:14</p>
-            <p className="mt-2 text-base font-semibold text-white">Take 6</p>
-            <p className="mt-1 text-sm text-white/70">Punch-in on the chorus</p>
-          </div>
+        <div className="relative z-10 mx-auto w-full min-w-0 max-w-[300px] sm:max-w-[340px] lg:mx-0 lg:max-w-[400px] xl:max-w-[440px]">
+          <PhoneMockup
+            src="/images/hero/singer-hero-female.png"
+            alt="Singer in a dark studio booth on the Wav-Aid welcome screen"
+            priority
+            glow
+          />
         </div>
       </div>
     </section>

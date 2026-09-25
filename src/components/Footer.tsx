@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { StudioPortrait } from "./StudioPortrait";
 
 const columns = [
   {
@@ -25,8 +26,16 @@ export function Footer() {
       <div className="mx-auto w-full max-w-7xl px-5 py-16 sm:px-8 sm:py-20 lg:px-10">
         <div
           id="get-started"
-          className="scroll-mt-24 overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] px-6 py-10 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-xl sm:px-10 sm:py-12 lg:px-14"
+          className="relative scroll-mt-24 overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] px-6 py-10 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] sm:px-10 sm:py-12 lg:px-14"
         >
+          <StudioPortrait
+            src="/images/hero/singer-female-1.png"
+            className="inset-y-0 right-0 hidden w-[38%] lg:block"
+            imageClassName="object-[40%_18%]"
+            fadeClassName="bg-gradient-to-r from-[#0b1020] via-[#0b1020]/25 to-transparent"
+            edges={false}
+          />
+          <div className="relative">
           <p className="font-mono text-[13px] tracking-[0.2em] text-violet-300 uppercase">For artists and musicians</p>
           <h2 className="mt-4 max-w-xl text-3xl leading-tight font-semibold tracking-tight sm:text-4xl">
             Bring the session to your phone.
@@ -47,6 +56,7 @@ export function Footer() {
             >
               Follow the workflow
             </a>
+          </div>
           </div>
         </div>
 

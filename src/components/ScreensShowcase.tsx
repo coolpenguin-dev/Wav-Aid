@@ -1,74 +1,87 @@
 import { PhoneMockup } from "./PhoneMockup";
 
-const screens = [
+const sessionScreens = [
   {
     src: "/images/screens/home-screen.png",
     title: "Home",
-    caption: "Sessions, keys, and a record button that starts the take.",
+    caption: "Come back to Midnight Demo with the key, tempo, and take count already on the card.",
     alt: "Wav-Aid home screen with recent sessions Midnight Demo and Warmup Pass",
-  },
-  {
-    src: "/images/screens/timeline-screen.png",
-    title: "Timeline",
-    caption: "Stacked vocal lanes under the beat, with a moving playhead.",
-    alt: "Timeline studio for Midnight Demo with beat and main vocal takes",
   },
   {
     src: "/images/screens/recording-screen.png",
     title: "Record",
-    caption: "Punch in while pitch, timing, and energy stay in view.",
+    caption: "Punch in on the chorus while pitch, timing, and energy stay in view.",
     alt: "Recording screen with Take 6 in red and AI monitoring for pitch, timing, and energy",
   },
   {
     src: "/images/screens/take-analysis-screen.png",
     title: "Analysis",
-    caption: "A performance score and a short note on what changed.",
+    caption: "A score for the pass you just sang, and what changed from the one before it.",
     alt: "Take 6 analysis with a performance score of 84 and an AI summary",
   },
-  {
-    src: "/images/screens/ai-coach-screen.png",
-    title: "AI Coach",
-    caption: "A producer in the session, ready for the next question.",
-    alt: "Wav-Aid Coach chat about the last vocal take inside Midnight Demo",
-  },
-  {
-    src: "/images/screens/smart-comp-screen.png",
-    title: "Smart Comp",
-    caption: "The strongest phrases, scored and ready to preview.",
-    alt: "Smart Comp screen building a best take for the pre-chorus",
-  },
+];
+
+const laneNotes = [
+  { label: "Beat", detail: "The arrangement stays locked under the vocal." },
+  { label: "Main vocal", detail: "Five takes, each with a score beside the waveform." },
+  { label: "Playhead", detail: "Verse into pre-chorus, ready for the next punch-in." },
 ];
 
 export function ScreensShowcase() {
   return (
     <section id="studio" className="scroll-mt-24 py-16 sm:py-20 lg:py-28" aria-labelledby="studio-heading">
-      <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10">
+      <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 lg:max-w-[90rem] lg:px-10">
         <div className="max-w-2xl">
-          <p className="font-mono text-[13px] tracking-[0.2em] text-violet-300 uppercase">On iPhone</p>
+          <p className="font-mono text-[13px] tracking-[0.2em] text-violet-300 uppercase">Timeline</p>
           <h2 id="studio-heading" className="mt-4 text-3xl leading-tight font-semibold tracking-tight sm:text-4xl lg:text-5xl">
-            A timeline you can hold.
+            Every pass stays where you sang it.
           </h2>
           <p className="mt-4 text-lg leading-8 text-white/75">
-            Home, lanes, recording, scores, coaching, and comp. The full session lives on the phone, not in a stripped-down recorder.
+            A vocal lane with the takes still on it. Scores sit next to the waveforms, and the playhead shows the section you are about to record again.
           </p>
-          <p className="mt-4 text-base text-violet-200 lg:hidden">Swipe through the session.</p>
+        </div>
+
+        <div className="mt-12 grid items-start gap-10 lg:mt-16 lg:grid-cols-[minmax(320px,0.95fr)_minmax(0,1.05fr)] lg:gap-16">
+          <div className="mx-auto w-full max-w-[320px] sm:max-w-[380px] lg:max-w-[460px]">
+            <PhoneMockup
+              src="/images/screens/timeline-screen.png"
+              alt="Timeline studio for Midnight Demo with beat and main vocal takes"
+              glow
+            />
+          </div>
+          <ul className="space-y-4">
+            {laneNotes.map((note) => (
+              <li
+                key={note.label}
+                className="rounded-3xl border border-white/10 bg-white/[0.045] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-xl sm:p-6"
+              >
+                <p className="font-mono text-[13px] tracking-[0.16em] text-violet-200 uppercase">{note.label}</p>
+                <p className="mt-2 text-lg leading-7 text-white">{note.detail}</p>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
 
+      <div className="mx-auto mt-16 w-full max-w-7xl px-5 sm:mt-20 sm:px-8 lg:max-w-[90rem] lg:px-10">
+        <p className="font-mono text-[13px] tracking-[0.2em] text-violet-300 uppercase">In the same session</p>
+        <p className="mt-3 max-w-xl text-lg leading-8 text-white/75 lg:hidden">Swipe the takes.</p>
+      </div>
+
       <ul
-        className="snap-row mt-8 flex snap-x snap-mandatory gap-5 overflow-x-auto px-[11vw] pb-2 lg:mx-auto lg:mt-14 lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-3 lg:justify-items-center lg:gap-x-8 lg:gap-y-14 lg:overflow-visible lg:px-10 lg:pb-0"
+        className="snap-row mt-6 flex snap-x snap-mandatory gap-5 overflow-x-auto px-[8vw] pb-2 lg:mx-auto lg:mt-8 lg:grid lg:w-full lg:max-w-[90rem] lg:grid-cols-3 lg:justify-items-center lg:gap-10 lg:overflow-visible lg:px-10 lg:pb-0"
         tabIndex={0}
         role="region"
-        aria-label="Wav-Aid app screens"
+        aria-label="Home, recording, and take analysis screens"
       >
-        {screens.map((screen) => (
+        {sessionScreens.map((screen) => (
           <li
             key={screen.src}
-            className="w-[min(78vw,280px)] shrink-0 snap-center lg:w-full lg:max-w-[300px] lg:snap-align-none"
+            className="w-[min(84vw,340px)] shrink-0 snap-center lg:w-full lg:max-w-[380px] lg:snap-align-none"
           >
             <figure>
-              <PhoneMockup src={screen.src} alt={screen.alt} className="lg:drop-shadow-[0_0_40px_rgba(139,92,246,0.18)]" />
-              <figcaption className="px-1 pt-5 text-center lg:pt-6">
+              <PhoneMockup src={screen.src} alt={screen.alt} />
+              <figcaption className="px-1 pt-5 lg:pt-6">
                 <p className="text-lg font-semibold lg:text-xl">{screen.title}</p>
                 <p className="mt-1 text-base leading-7 text-white/70 lg:mt-2">{screen.caption}</p>
               </figcaption>
