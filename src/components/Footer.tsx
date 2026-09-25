@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Reveal } from "./motion";
 import { StudioPortrait } from "./StudioPortrait";
 
 const columns = [
@@ -35,7 +36,7 @@ export function Footer() {
             fadeClassName="bg-gradient-to-r from-[#0b1020] via-[#0b1020]/25 to-transparent"
             edges={false}
           />
-          <div className="relative">
+          <Reveal className="relative">
           <p className="font-mono text-[13px] tracking-[0.2em] text-violet-300 uppercase">For artists and musicians</p>
           <h2 className="mt-4 max-w-xl text-3xl leading-tight font-semibold tracking-tight sm:text-4xl">
             Bring the session to your phone.
@@ -57,7 +58,7 @@ export function Footer() {
               Follow the workflow
             </a>
           </div>
-          </div>
+          </Reveal>
         </div>
 
         <div className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr] lg:gap-16">

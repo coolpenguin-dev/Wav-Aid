@@ -76,22 +76,3 @@ body {
   display: none;
 }
 
-@keyframes float-soft {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-12px);
-  }
-}
-
-.float-soft {
-  animation: float-soft 7s ease-in-out infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .float-soft {
-    animation: none;
-  }
-}

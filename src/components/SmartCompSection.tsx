@@ -1,3 +1,4 @@
+import { Reveal } from "./motion";
 import { PhoneMockup } from "./PhoneMockup";
 
 const reasons = [
@@ -19,6 +20,7 @@ export function SmartCompSection() {
         </div>
 
         <div className="order-1 lg:order-2">
+          <Reveal>
           <p className="font-mono text-[13px] tracking-[0.2em] text-violet-300 uppercase">Smart Comp</p>
           <h2 id="comp-heading" className="mt-4 text-3xl leading-tight font-semibold tracking-tight sm:text-4xl lg:text-5xl">
             The best phrases, still yours to approve.
@@ -26,7 +28,9 @@ export function SmartCompSection() {
           <p className="mt-4 text-lg leading-8 text-white/75">
             Wav-Aid drafts a performance from the lines that already worked. Preview the comp, accept it, or swap any section by hand.
           </p>
+          </Reveal>
 
+          <Reveal delay={0.12}>
           <div className="mt-8 rounded-3xl border border-violet-400/25 bg-[#120c22]/80 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-xl sm:p-7">
             <div className="flex items-end justify-between gap-4">
               <p className="text-base text-white/80">Suggested performance</p>
@@ -46,6 +50,7 @@ export function SmartCompSection() {
               ))}
             </ul>
           </div>
+          </Reveal>
         </div>
       </div>
     </section>

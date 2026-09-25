@@ -1,3 +1,5 @@
+import { Reveal } from "./motion";
+
 const steps = [
   {
     title: "Session",
@@ -37,7 +39,7 @@ export function Workflow() {
       aria-labelledby="workflow-heading"
     >
       <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10">
-        <div className="max-w-2xl">
+        <Reveal className="max-w-2xl">
           <p className="font-mono text-[13px] tracking-[0.2em] text-violet-300 uppercase">Workflow</p>
           <h2 id="workflow-heading" className="mt-4 text-3xl leading-tight font-semibold tracking-tight sm:text-4xl lg:text-5xl">
             From the session to a better performance.
@@ -45,7 +47,7 @@ export function Workflow() {
           <p className="mt-4 text-lg leading-8 text-white/75">
             The same path every time you record: lay down the lane, compare the passes, then let the coach point at the next punch-in.
           </p>
-        </div>
+        </Reveal>
 
         <ol className="relative mt-10 space-y-4 md:grid md:grid-cols-2 md:gap-4 md:space-y-0 lg:grid-cols-12 lg:gap-5">
           <div
@@ -57,7 +59,8 @@ export function Workflow() {
               key={step.title}
               className={index < 4 ? "lg:col-span-3" : "lg:col-span-4"}
             >
-              <article className="relative flex gap-4 rounded-3xl border border-white/10 bg-[#0c1020]/80 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] backdrop-blur-xl sm:p-6 md:h-full md:flex-col">
+              <Reveal delay={index * 0.05} className="h-full">
+              <article className="relative flex h-full gap-4 rounded-3xl border border-white/10 bg-[#0c1020]/80 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] backdrop-blur-xl sm:p-6 md:flex-col">
                 <span className="relative z-10 flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-violet-500/20 font-mono text-base text-violet-100 ring-1 ring-violet-400/40">
                   {String(index + 1).padStart(2, "0")}
                 </span>
@@ -66,6 +69,7 @@ export function Workflow() {
                   <p className="mt-2 text-base leading-7 text-white/72">{step.body}</p>
                 </div>
               </article>
+              </Reveal>
             </li>
           ))}
         </ol>

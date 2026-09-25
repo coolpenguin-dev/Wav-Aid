@@ -1,3 +1,4 @@
+import { Reveal } from "./motion";
 import { PhoneMockup } from "./PhoneMockup";
 
 const sessionScreens = [
@@ -31,7 +32,7 @@ export function ScreensShowcase() {
   return (
     <section id="studio" className="scroll-mt-24 py-16 sm:py-20 lg:py-28" aria-labelledby="studio-heading">
       <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 lg:max-w-[90rem] lg:px-10">
-        <div className="max-w-2xl">
+        <Reveal className="max-w-2xl">
           <p className="font-mono text-[13px] tracking-[0.2em] text-violet-300 uppercase">Timeline</p>
           <h2 id="studio-heading" className="mt-4 text-3xl leading-tight font-semibold tracking-tight sm:text-4xl lg:text-5xl">
             Every pass stays where you sang it.
@@ -39,7 +40,7 @@ export function ScreensShowcase() {
           <p className="mt-4 text-lg leading-8 text-white/75">
             A vocal lane with the takes still on it. Scores sit next to the waveforms, and the playhead shows the section you are about to record again.
           </p>
-        </div>
+        </Reveal>
 
         <div className="mt-12 grid items-start gap-10 lg:mt-16 lg:grid-cols-[minmax(320px,0.95fr)_minmax(0,1.05fr)] lg:gap-16">
           <div className="mx-auto w-full max-w-[320px] sm:max-w-[380px] lg:max-w-[460px]">
@@ -50,13 +51,14 @@ export function ScreensShowcase() {
             />
           </div>
           <ul className="space-y-4">
-            {laneNotes.map((note) => (
-              <li
-                key={note.label}
-                className="rounded-3xl border border-white/10 bg-white/[0.045] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-xl sm:p-6"
-              >
+            {laneNotes.map((note, index) => (
+              <li key={note.label}>
+              <Reveal delay={index * 0.08}>
+              <div className="rounded-3xl border border-white/10 bg-white/[0.045] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-xl sm:p-6">
                 <p className="font-mono text-[13px] tracking-[0.16em] text-violet-200 uppercase">{note.label}</p>
                 <p className="mt-2 text-lg leading-7 text-white">{note.detail}</p>
+              </div>
+              </Reveal>
               </li>
             ))}
           </ul>
